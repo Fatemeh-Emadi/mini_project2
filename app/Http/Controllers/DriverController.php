@@ -7,6 +7,7 @@ use App\Models\Color;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 class DriverController extends Controller
 {
     function register_get()
@@ -52,16 +53,20 @@ class DriverController extends Controller
     function login_post(Request $request)
     {
         $this->validate($request,[
-            'number'=>'required',
+            'login'=>'required',
             'password'=>'required'
     
         ]);
-       
-        if(Auth::attempt(["number"=>$request["number"],"password"=>$request["password"]])){
-            return redirect("/driver_profile")->with([
-                "message"=>"شما با موفقیت وارد حساب کاربری خود شدید"
-            ]
-            );
+        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) ? 'email' : 'number';
+        $request->merge([ $login_type => $request->input('login') ]);
+        if (Auth::attempt($request->only($login_type, 'password'))) { 
+           // if(Auth::attempt(['role'=>0])){
+               
+            $id = Auth::id();
+              
+              Session::put("driver_id",$id);
+        
+              return redirect("/driver_profile");
         }
         else{
             return redirect("/login")->with([
@@ -70,6 +75,7 @@ class DriverController extends Controller
 
             );
         }
+
 
 
       

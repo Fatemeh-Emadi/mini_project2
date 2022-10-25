@@ -30,3 +30,6 @@ Route::get('/login-user', [UserController::class, 'login_get']);
 Route::post('/login-user', [UserController::class, 'login_post']);
 
 Route::get('/taxi', [UserController::class, 'taxi']);
+
+
+Route::get('/driver_profile', [DriverController::class, 'trips_get']);
