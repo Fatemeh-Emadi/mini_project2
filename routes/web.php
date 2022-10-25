@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StatusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +34,5 @@ Route::get('/taxi', [UserController::class, 'taxi']);
 
 
 Route::get('/driver_profile', [DriverController::class, 'trips_get']);
+Route::post('/reject', [StatusController::class, 'reject']);
+Route::post('/accept', [StatusController::class, 'accept']);
