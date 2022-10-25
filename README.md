@@ -13,3 +13,7 @@
 
 
 ![screencapture-127-0-0-1-8000-register-2022-10-25-23_37_30](https://user-images.githubusercontent.com/79381313/197872238-c3c75307-e976-45b7-a582-4c3e2d4c5295.png)
+
+
+
+![screencapture-127-0-0-1-8000-taxi-2022-10-25-23_55_45](https://user-images.githubusercontent.com/79381313/197875003-f06a99fb-124c-4c90-817e-1ceee5d5f01c.png)
